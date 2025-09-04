@@ -1,71 +1,90 @@
-# 🧵 WGAN-GP on FashionMNIST
+# WGAN‑GP on Fashion‑MNIST
 
-An implementation of **Wasserstein GAN with Gradient Penalty (WGAN-GP)** trained on the **FashionMNIST** dataset.  
-This project demonstrates stable GAN training, image generation, loss curve visualization, and evaluation using **Fréchet Inception Distance (FID)**.
+An implementation of **Wasserstein GAN with Gradient Penalty (WGAN‑GP)** trained on the Fashion‑MNIST dataset.  
+Includes training, visualization, and evaluation with FID.
+
+---
+
+## 📌 About
+
+A modular framework featuring:
+
+- Training with **WGAN‑GP loss** for stable convergence  
+- **InstanceNorm** in Generator/Discriminator  
+- Visual outputs:  
+  - Generated image grids per epoch  
+  - Loss curve plots  
+  - GIFs to track training progress  
+- **FID evaluation** for quantifying image quality
 
 ---
 
 ## 📂 Project Structure
 
-├── data_preprocessing.py # Dataset loading & normalization
-├── model.py # Generator & Discriminator
-├── train.py # Training loop (WGAN-GP)
-├── evaluation.py # FID computation
-├── visualization.py # Save samples, plot loss curves, make GIFs
-├── main.py # Run training & evaluation
-├── results/ # Generated samples, loss curves, GIFs
-
-
----
-
-## ✨ Features
-
-- ✅ **WGAN-GP loss** → stable GAN training  
-- ✅ **FashionMNIST dataset** (grayscale clothing items)  
-- ✅ **Generator & Discriminator** with InstanceNorm  
-- ✅ **Visualization**:
-  - Save generated samples per epoch  
-  - Track loss curves  
-  - GIF animations of training progress  
-- ✅ **Evaluation**:
-  - Compute **FID score** to measure quality/diversity  
+```
+├── data_preprocessing.py   → Load & preprocess Fashion‑MNIST  
+├── model.py                → Generator & Discriminator definition  
+├── train.py                → WGAN‑GP training loop  
+├── evaluation.py           → FID computation  
+├── visualization.py        → Image/gif utility functions  
+├── main.py                 → Run training & evaluation  
+├── results/                → Generated images, loss plots, GIFs  
+└── README.md               → Project documentation
+```
 
 ---
-
-
-📌 Requirements
-
-Python 3.8+
-
-PyTorch
-
-torchvision
-
-matplotlib
-
-imageio
-
-numpy
 
 ## 🚀 Usage
 
-Train the WGAN-GP on **FashionMNIST**:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/abolfazl-79/WGAN-GP-FashionMNIST.git
+   cd WGAN-GP-FashionMNIST
+   ```
 
-```bash
-python main.py
+2. Install dependencies:
+   ```bash
+   pip install torch torchvision matplotlib imageio numpy scipy
+   ```
 
+3. Run the training script:
+   ```bash
+   python main.py
+   ```
 
-Outputs:
+---
 
+## 📊 Results
 
-### Generated Samples During Training
+### Generated Samples Through Training  
 ![Training Progress](results/training_progress.gif)
-### Loss Curve Progress
+
+### Loss Curve Evolution  
 ![Loss Curve Progress](results/loss_curve_progress.gif)
 
+---
 
-Evaluation
+## 📈 Evaluation
 
-We use Fréchet Inception Distance (FID) as a metric:
+After training, FID is computed using the `evaluation.py` module. Lower values indicate better quality.  
+```
+Fréchet Inception Distance is: <Your FID Value>
+```
 
-Lower FID = Better quality & diversity
+---
+
+## ⚙️ Requirements
+
+- Python 3.8+  
+- PyTorch  
+- torchvision  
+- matplotlib  
+- imageio  
+- numpy  
+- scipy  
+
+---
+
+## 📜 License
+
+This project is shared under the **MIT License**. Feel free to view, modify, and build upon it.
